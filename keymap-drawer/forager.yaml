@@ -3,178 +3,108 @@ layers:
   BASE:
   - Q
   - W
-  - E
-  - R
-  - T
-  - Y
-  - U
-  - I
-  - O
+  - F
   - P
-  - {t: A, h: LGUI}
-  - {t: S, h: LALT}
-  - {t: D, h: LCTRL}
-  - {t: F, h: LSHFT}
-  - G
-  - H
-  - {t: J, h: RSHFT}
-  - {t: K, h: RCTRL}
-  - {t: L, h: RALT}
-  - {t: ;, h: RGUI}
-  - Z
-  - X
-  - C
-  - V
   - B
-  - N
+  - ;
+  - J
+  - L
+  - U
+  - Y
+  - {t: A, h: LSHFT}
+  - R
+  - S
+  - T
+  - G
   - M
-  - {t: ',', s: ;}
-  - {t: ., s: ':'}
-  - /
-  - {t: SPACE, h: NAV}
-  - TAB
-  - {t: RET, h: SYM}
-  - {t: BSPC, h: NUM}
-  NAV:
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - Gui+Sft+Z
-  - Gui+V
-  - Gui+C
-  - Gui+X
-  - Gui+Z
-  - LGUI
-  - LALT
-  - LCTRL
-  - LSHFT
-  - ''
+  - N
+  - E
+  - I
+  - {t: O, h: RSHFT}
+  - {t: Z, h: LCTRL}
+  - {t: X, h: LGUI}
+  - {t: C, h: LALT}
+  - D
+  - V
+  - K
+  - H
+  - {t: ',', h: RALT}
+  - {t: ., h: RGUI}
+  - {t: /, h: RCTRL}
+  - BACKSPACE
+  - SPACE
+  - ENTER
+  - {t: NUM, h: toggle}
+  NUM:
+  - ESC
+  - '['
+  - UP
+  - ']'
+  - '*'
+  - {t: '-', h: _}
+  - {t: '7', h: '&'}
+  - {t: '8', h: '*'}
+  - {t: '9', h: (}
+  - {t: \, h: DEL}
+  - {t: TAB, h: LEFT SHIFT}
   - LEFT
   - DOWN
-  - UP
   - RIGHT
-  - CAPS
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - INS
-  - HOME
-  - PG DN
-  - PG UP
-  - END
-  - {type: held}
-  - ''
-  - {t: ▽, type: trans}
-  - BSPC
-  NUM:
-  - '['
-  - '7'
-  - '8'
-  - '9'
-  - ']'
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ;
-  - '4'
-  - '5'
-  - '6'
-  - '='
-  - ''
-  - RSHFT
-  - RCTRL
-  - RALT
-  - RGUI
-  - '`'
-  - '1'
-  - '2'
-  - '3'
-  - \
-  - ''
-  - ''
+  - /
+  - {t: '=', h: +}
+  - {t: '4', h: $}
+  - {t: '5', h: '%'}
+  - {t: '6', h: ^}
+  - {t: '''', h: '"'}
+  - LCTRL
+  - LGUI
+  - {t: '`', h: LALT}
   - ','
   - .
-  - ''
+  - {t: '0', h: )}
+  - {t: '1', h: '!'}
+  - {t: '2', h: '@'}
+  - {t: '3', h: '#'}
+  - {t: ADJ, h: toggle}
+  - {t: BASE, h: toggle}
   - SPACE
-  - '0'
-  - RET
-  - {t: BSPC, type: held}
-  SYM:
-  - '{'
-  - '&'
-  - '*'
-  - (
-  - '}'
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ':'
-  - $
-  - '%'
-  - ^
-  - +
-  - ''
-  - RSHFT
-  - RCTRL
-  - RALT
-  - RGUI
-  - '~'
-  - '!'
-  - '@'
-  - '#'
-  - '|'
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: ▽, type: trans}
-  - )
-  - {type: held}
-  - ''
+  - HOME
+  - END
   ADJ:
-  - '&studio_unlock'
-  - ''
-  - ''
-  - ''
-  - ''
-  - MUTE
-  - VOL DN
-  - VOL UP
-  - PP
-  - ''
-  - LGUI
-  - LALT
-  - LCTRL
-  - LSHFT
-  - ''
-  - OUT TOG
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - BT CLR
   - {t: BT, h: '0'}
   - {t: BT, h: '1'}
   - {t: BT, h: '2'}
   - {t: BT, h: '3'}
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
+  - OUT BLE
+  - OUT USB
+  - ''
+  - ''
+  - VOLUME UP
+  - F11
+  - F12
+  - ''
+  - ''
+  - ''
   - '&bootloader'
   - '&sys_reset'
   - ''
   - ''
-  - ''
-  - BT CLR
-  - ''
-  - ''
-  - ''
-  - ''
-  - {type: held}
-  - ''
-  - {type: held}
-  - ''
+  - VOLUME DOWN
+  - {t: BASE, h: toggle}
+  - LEFT ALT
+  - RIGHT CONTROL
+  - RIGHT SHIFT
 combos:
 - p: [0, 1]
   k: ESC
@@ -195,16 +125,7 @@ combos:
   k: RET
   l: [BASE]
 - p: [16, 17]
-  k: '&num_word 2'
-  l: [BASE]
-- p: [21, 22]
-  k: Gui+C
-  l: [BASE]
-- p: [22, 23]
-  k: Gui+V
-  l: [BASE]
-- p: [21, 23]
-  k: Gui+X
+  k: '&num_word 1'
   l: [BASE]
 - p: [16, 26]
   k: '-'
@@ -218,3 +139,6 @@ combos:
 - p: [11, 21]
   k: '`'
   l: [BASE]
+- p: [30, 31]
+  k: '&key_repeat'
+  l: [NUM, BASE]
