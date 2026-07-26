@@ -244,30 +244,30 @@
         base_layer {
             display-name = "BASE";
             bindings = <
-&kp Q         &kp W        &kp F        &kp P          &kp B      &kp SEMI   &kp J  &kp L            &kp U          &kp Y
-&hml LSHFT A  &kp R        &kp S        &kp T          &kp G      &kp M      &kp N  &kp E            &kp I          &hmr RSHFT O
-&hml LCTRL Z  &hml LGUI X  &hml LALT C  &kp D          &kp V      &kp K      &kp H  &hmr RALT COMMA  &hmr RGUI DOT  &hmr RCTRL FSLH
-                                        &kp BACKSPACE  &kp SPACE  &kp ENTER  &to 1
+  &kp Q         &kp W        &kp F        &kp P          &kp B        &kp SEMI   &kp J  &kp L            &kp U          &kp Y
+  &hml LSHFT A  &kp R        &kp S        &kp T          &kp G        &kp M      &kp N  &kp E            &kp I          &hmr RSHFT O
+  &hml LCTRL Z  &hml LGUI X  &hml LALT C  &kp D          &kp V        &kp K      &kp H  &hmr RALT COMMA  &hmr RGUI DOT  &hmr RCTRL FSLH
+                                          &kp BACKSPACE  &kp SPACE    &kp ENTER  &to 1
             >;
         };
 
         num_layer {
             display-name = "NUM";
             bindings = <
-&kp ESC              &kp LBKT  &kp UP           &kp RBKT   &kp FSLH   &as UNDER MINUS  &as AMPERSAND N7     &as ASTERISK N8       &as LEFT_PARENTHESIS N9  &hmr DEL BSLH
-&hml LEFT_SHIFT TAB  &kp LEFT  &kp DOWN         &kp RIGHT  &kp STAR   &as PLUS EQUAL   &as DOLLAR NUMBER_4  &as PERCENT N5        &as CARET NUMBER_6       &as DOUBLE_QUOTES SINGLE_QUOTE
-&kp LCTRL            &kp LGUI  &hml LALT GRAVE  &kp COMMA  &kp DOT    &as RPAR N0      &as EXCL NUMBER_1    &as AT_SIGN NUMBER_2  &as HASH NUMBER_3        &to 2
-                                                &to 0      &kp SPACE  &kp HOME         &kp END
+  &kp ESC              &kp LBKT  &kp UP           &kp RBKT   &kp ASTERISK    &as UNDER MINUS  &as AMPERSAND N7     &as ASTERISK N8       &as LEFT_PARENTHESIS N9  &hmr DEL BSLH
+  &hml LEFT_SHIFT TAB  &kp LEFT  &kp DOWN         &kp RIGHT  &kp SLASH       &as PLUS EQUAL   &as DOLLAR NUMBER_4  &as PERCENT N5        &as CARET NUMBER_6       &as DOUBLE_QUOTES SINGLE_QUOTE
+  &kp LCTRL            &kp LGUI  &hml LALT GRAVE  &kp COMMA  &kp DOT         &as RPAR N0      &as EXCL NUMBER_1    &as AT_SIGN NUMBER_2  &as HASH NUMBER_3        &to 2
+                                                  &to 0      &kp SPACE       &kp HOME         &kp END
             >;
         };
 
         adj_layer {
             display-name = "ADJ";
             bindings = <
-&kp F1   &kp F2   &kp F3  &kp F4  &kp F5          &bt BT_CLR         &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
-&kp F6   &kp F7   &kp F8  &kp F9  &kp F10         &out OUT_BLE       &out OUT_USB    &none         &none         &none
-&kp F11  &kp F12  &none   &none   &none           &bootloader        &sys_reset      &none         &none         &none
-                          &to 0   &kp LEFT_SHIFT  &kp RIGHT_CONTROL  &kp RIGHT_ALT
+  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5          &bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
+  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10         &out OUT_BLE       &out OUT_USB     &none         &none         &kp C_VOLUME_UP
+  &kp F11  &kp F12  &none   &none   &none           &bootloader        &sys_reset       &none         &none         &kp C_VOLUME_DOWN
+                            &to 0   &kp LEFT_ALT    &kp RIGHT_CONTROL  &kp RIGHT_SHIFT
             >;
         };
     };
