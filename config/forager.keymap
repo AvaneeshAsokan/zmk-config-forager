@@ -154,81 +154,8 @@
             require-prior-idle-ms = <150>;
         };
 
-        combo_bspc {
-            bindings = <&kp BSPC>;
-            key-positions = <7 8>;          // U + Y
-            layers = <0>;
-            timeout-ms = <30>;
-            require-prior-idle-ms = <150>;
-        };
-
-        combo_del {
-            bindings = <&kp DEL>;
-            key-positions = <8 9>;          // Y + P
-            layers = <0>;
-            timeout-ms = <30>;
-            require-prior-idle-ms = <150>;
-        };
-
         // -- Tier 2: High Value (from Corne) --
-
-        combo_tab {
-            bindings = <&kp TAB>;
-            key-positions = <11 12>;        // R + S
-            layers = <0>;
-            timeout-ms = <30>;
-            require-prior-idle-ms = <150>;
-        };
-
-        combo_enter {
-            bindings = <&kp RET>;
-            key-positions = <17 18>;        // E + I
-            layers = <0>;
-            timeout-ms = <30>;
-            require-prior-idle-ms = <150>;
-        };
-
-        combo_num_word {
-            bindings = <&num_word NUM>;
-            key-positions = <16 17>;        // N + E
-            layers = <0>;
-            timeout-ms = <30>;
-            require-prior-idle-ms = <150>;
-        };
-
         // -- Tier 3: Vertical Symbol Combos (from Corne) --
-
-        combo_minus {
-            bindings = <&kp MINUS>;
-            key-positions = <16 26>;        // N + M
-            layers = <0>;
-            timeout-ms = <40>;
-            require-prior-idle-ms = <100>;
-        };
-
-        combo_underscore {
-            bindings = <&kp UNDER>;
-            key-positions = <15 25>;        // H + N
-            layers = <0>;
-            timeout-ms = <40>;
-            require-prior-idle-ms = <100>;
-        };
-
-        combo_equal {
-            bindings = <&kp EQUAL>;
-            key-positions = <13 23>;        // T + V
-            layers = <0>;
-            timeout-ms = <40>;
-            require-prior-idle-ms = <100>;
-        };
-
-        combo_grave {
-            bindings = <&kp GRAVE>;
-            key-positions = <11 21>;        // R + X
-            layers = <0>;
-            timeout-ms = <40>;
-            require-prior-idle-ms = <100>;
-        };
 
         repeat {
             bindings = <&key_repeat>;
