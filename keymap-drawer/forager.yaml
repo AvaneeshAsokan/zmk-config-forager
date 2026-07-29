@@ -57,7 +57,7 @@ layers:
   - {t: '6', h: ^}
   - {t: '''', h: '"'}
   - LCTRL
-  - LGUI
+  - {t: LEFT META, h: LEFT SHIFT}
   - {t: '`', h: LALT}
   - ','
   - .
