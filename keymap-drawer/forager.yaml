@@ -112,33 +112,6 @@ combos:
 - p: [13, 16]
   k: '&caps_word'
   l: [BASE]
-- p: [7, 8]
-  k: BSPC
-  l: [BASE]
-- p: [8, 9]
-  k: DEL
-  l: [BASE]
-- p: [11, 12]
-  k: TAB
-  l: [BASE]
-- p: [17, 18]
-  k: RET
-  l: [BASE]
-- p: [16, 17]
-  k: '&num_word 1'
-  l: [BASE]
-- p: [16, 26]
-  k: '-'
-  l: [BASE]
-- p: [15, 25]
-  k: _
-  l: [BASE]
-- p: [13, 23]
-  k: '='
-  l: [BASE]
-- p: [11, 21]
-  k: '`'
-  l: [BASE]
 - p: [30, 31]
   k: '&key_repeat'
   l: [NUM, BASE]
