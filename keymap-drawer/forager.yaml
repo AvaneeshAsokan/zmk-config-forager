@@ -55,7 +55,7 @@ layers:
   - {t: '4', h: $}
   - {t: '5', h: '%'}
   - {t: '6', h: ^}
-  - {t: '''', h: '"'}
+  - {t: '''', h: RSHFT}
   - LCTRL
   - {t: LEFT META, h: LEFT SHIFT}
   - {t: '`', h: LALT}
