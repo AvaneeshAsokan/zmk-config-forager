@@ -180,13 +180,15 @@
 
         num_layer {
             display-name = "NUM";
+
             // ' key doubles as a right-hand shift (opposite-hand from LBKT/RBKT/GRAVE
             // on this layer), giving a fast chord for { } ~ that a lone key can't hold.
+
             bindings = <
-  &kp ESC              &kp LBKT                   &kp UP           &kp RBKT   &kp ASTERISK    &as UNDER MINUS  &as AMPERSAND N7     &as ASTERISK N8       &as LEFT_PARENTHESIS N9  &hmr DEL BSLH
-  &hml LEFT_SHIFT TAB  &kp LEFT                   &kp DOWN         &kp RIGHT  &kp SLASH       &as PLUS EQUAL   &as DOLLAR NUMBER_4  &as PERCENT N5        &as CARET NUMBER_6       &hmr RSHFT SINGLE_QUOTE
-  &kp LCTRL            &hml LEFT_SHIFT LEFT_META  &hml LALT GRAVE  &kp COMMA  &kp DOT         &as RPAR N0      &as EXCL NUMBER_1    &as AT_SIGN NUMBER_2  &as HASH NUMBER_3        &to 2
-                                                                   &to 0      &kp SPACE       &kp HOME         &kp END
+  &kp ESC              &kp LBKT       &kp UP           &kp RBKT   &kp ASTERISK    &as UNDER MINUS  &as AMPERSAND N7     &as ASTERISK N8       &as LEFT_PARENTHESIS N9  &hmr DEL BSLH
+  &hml LEFT_SHIFT TAB  &kp LEFT       &kp DOWN         &kp RIGHT  &kp SLASH       &as PLUS EQUAL   &as DOLLAR NUMBER_4  &as PERCENT N5        &as CARET NUMBER_6       &hmr RSHFT SINGLE_QUOTE
+  &kp LCTRL            &kp LEFT_META  &hml LALT GRAVE  &kp COMMA  &kp DOT         &as RPAR N0      &as EXCL NUMBER_1    &as AT_SIGN NUMBER_2  &as HASH NUMBER_3        &to 2
+                                                       &to 0      &kp SPACE       &kp HOME         &kp END
             >;
         };
 
