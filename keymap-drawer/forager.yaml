@@ -57,7 +57,7 @@ layers:
   - {t: '6', h: ^}
   - {t: '''', h: RSHFT}
   - LCTRL
-  - {t: LEFT META, h: LEFT SHIFT}
+  - LEFT META
   - {t: '`', h: LALT}
   - ','
   - .
