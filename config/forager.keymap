@@ -133,7 +133,9 @@
         clear_mods: clear_mods {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_release LSHFT RSHFT LCTRL RCTRL LALT RALT LGUI RGUI>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_release &kp LSHFT &kp RSHFT &kp LCTRL &kp RCTRL &kp LALT &kp RALT &kp LGUI &kp RGUI>;
         };
     };
 
