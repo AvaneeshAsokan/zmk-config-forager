@@ -129,6 +129,12 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        clear_mods: clear_mods {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release LSHFT RSHFT LCTRL RCTRL LALT RALT LGUI RGUI>;
+        };
     };
 
     combos {
@@ -162,6 +168,13 @@
             key-positions = <30 31>;
             timeout-ms = <60>;
             layers = <1 0>;
+        };
+
+        clear_mods_combo {
+            bindings = <&clear_mods>;
+            key-positions = <29 30 31>;     // Right-pinky + both inner thumbs
+            timeout-ms = <50>;
+            layers = <0 1 2>;               // Available on all layers
         };
     };
 

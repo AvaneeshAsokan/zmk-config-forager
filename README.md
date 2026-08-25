@@ -56,6 +56,14 @@ typing: holds register after 280 ms, only for cross-hand combinations
   type `3.14` or `2026-07-24` with both hands free, and releases
   automatically at the first non-number key.
 
+### Stuck-modifier escape hatch
+
+If a modifier key (Shift, Ctrl, Alt, Cmd) ever gets stuck held down due to a
+BLE packet loss, press the **three-key combo: right-pinky + both inner thumbs**
+to instantly clear all modifiers. This sends explicit key-up reports for all
+eight modifiers, correcting the host's state even if the keyboard's held key
+never released.
+
 ### Combos
 
 Press two neighboring keys at once:
