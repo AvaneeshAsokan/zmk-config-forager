@@ -93,7 +93,7 @@ layers:
   - VOLUME UP
   - F11
   - F12
-  - ''
+  - '&clear_mods'
   - ''
   - ''
   - '&bootloader'
