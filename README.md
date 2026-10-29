@@ -25,12 +25,16 @@ keymap changes.
 
 ### Layers
 
-| Hold | Layer |
+The keymap currently has three layers, switched with `&to` (a tap switches
+and stays; nothing needs to be held):
+
+| Tap | Goes to |
 |---|---|
-| SPACE (left thumb) | **NAV** — vim arrows on HJKL, clipboard on the top row, page nav below |
-| RET (right thumb) | **SYM** — programming symbols on the left hand, parens on the thumbs |
-| BSPC (right thumb) | **NUM** — numpad on the left hand, `0` on the thumb |
-| SPACE + RET together | **ADJ** — bluetooth, volume, output, system keys |
+| Right outer thumb (from BASE) | **NUM** — arrows on the left hand, numpad on the right |
+| Bottom-right key, `/` position (from NUM) | **ADJ** — bluetooth, output, volume, bootloader |
+| Left outer thumb (from NUM or ADJ) | back to **BASE** |
+
+Key positions below are named by their BASE-layer (Colemak-DH) letter.
 
 ### Home row mods
 
@@ -59,8 +63,8 @@ typing: holds register after 280 ms, only for cross-hand combinations
 ### Stuck-modifier escape hatch
 
 If a modifier key (Shift, Ctrl, Alt, Cmd) ever gets stuck held down due to a
-BLE packet loss, hold **SPACE + RET (ADJ layer)** and press the **key to the
-right of F12** to instantly clear all modifiers. This sends explicit key-up
+BLE packet loss, switch to the **ADJ layer** and press the **key to the
+right of F12** (the `C` position) to instantly clear all modifiers. This sends explicit key-up
 reports for all eight modifiers, correcting the host's state even if the
 keyboard's held key never released.
 
@@ -81,14 +85,20 @@ Press two neighboring keys at once:
 ## Connecting to multiple systems
 
 The keyboard stores **four independent bluetooth profiles**; each remembers
-its own paired computer. All bluetooth keys live on the ADJ layer
-(**hold SPACE + RET together**):
+its own paired computer. All bluetooth keys live on the ADJ layer (BASE →
+tap right outer thumb → tap the `/` key). On ADJ, the right hand is:
 
-| ADJ chord + | Action |
+| ADJ key (BASE position) | Action |
 |---|---|
-| `J` / `K` / `L` / `;` | Switch to profile 0 / 1 / 2 / 3 |
-| `N` | Clear the **current** profile's pairing (`BT_CLR`) |
-| `H` | Toggle output between USB and bluetooth (`OUT_TOG`) |
+| `;` | Clear the **current** profile's pairing (`BT_CLR`) |
+| `J` / `L` / `U` / `Y` | Switch to profile 0 / 1 / 2 / 3 |
+| `M` | Output over bluetooth (`OUT_BLE`) |
+| `N` | Output over USB (`OUT_USB`) |
+| `K` | **Bootloader** — the left half goes dead until reflashed or reset |
+| `H` | Reset the left half |
+| `O` / `/` | Volume up / down |
+
+Tap the left outer thumb to return to BASE afterwards.
 
 To pair a new computer: switch to an unused profile, then add
 "**forager_sk**" from that computer's bluetooth settings. To move between
@@ -96,20 +106,25 @@ already-paired computers, just switch profiles — the keyboard drops the
 current host and connects to the profile's host in a second or two.
 
 If a pairing misbehaves, clear it on **both** sides: forget the keyboard in
-the computer's bluetooth settings *and* press ADJ chord + `N` with that
-profile active — a half-cleared pairing causes connect-but-no-typing states.
+the computer's bluetooth settings *and* press ADJ + `;` with that profile
+active — a half-cleared pairing causes connect-but-no-typing states. Since
+`CONFIG_ZMK_BLE_EXPERIMENTAL_SEC=y` a computer that has forgotten the
+keyboard can also re-pair straight away without `BT_CLR`; the keyboard
+overwrites that profile's old bond.
 
-When charging over USB, USB output works regardless of profile (toggle with
-ADJ chord + `H` if the wrong output is active).
+If you are on USB and nothing types over bluetooth, you are probably in USB
+output: press ADJ + `M`.
 
 ## Power and sleep
 
 The Forager has no power switch; power is managed in firmware:
 
 - **Idle** after 10 minutes without typing — lights off, connection kept.
-- **Deep sleep** after 15 minutes — bluetooth drops, near-zero battery
+- **Deep sleep** after 2 hours — bluetooth drops, near-zero battery
   drain. Tap any key on a sleeping half to wake it; the waking tap itself
-  is swallowed, and reconnection takes a second or two.
+  is swallowed, and reconnection takes a second or two. The timeout is long
+  so the link survives a laptop nap: hosts resume a live link reliably but
+  are much worse at rediscovering a keyboard that went away while they slept.
 - Charge over USB-C on either half.
 
 ## Flashing firmware
@@ -123,8 +138,8 @@ install locally.
    half, and `settings_reset`.
 2. Put the half you're flashing into bootloader mode:
    - **Double-tap the reset button** on its XIAO BLE, or
-   - from the keyboard: hold SPACE+RET and tap **Z** (`&bootloader`, ADJ
-     layer) — this only reaches the left half's bootloader.
+   - from the keyboard: switch to ADJ and tap the **`K`** position
+     (`&bootloader`) — this only reaches the left half's bootloader.
    The board mounts as a USB drive named `XIAO-SENSE`.
 3. Drag the matching `.uf2` onto the drive. It flashes itself and reboots;
    the drive disappearing is normal.
@@ -144,15 +159,17 @@ bonds, so you'll re-pair with everything. See the
   [`config/forager.keymap`](config/forager.keymap), push, flash. The keymap
   diagram above re-draws itself on every push.
 - **Live experiments:** [ZMK Studio](https://zmk.studio) in Chrome lets you
-  remap keys over USB with no reflash — connect the left half by cable and
-  press ADJ chord + `Q` (`&studio_unlock`) to allow changes. Studio changes
-  live on the keyboard only, so make keeper-changes in the repo.
+  remap keys over USB with no reflash — connect the left half by cable.
+  `&studio_unlock` is not bound in the current keymap; add it to a spare ADJ
+  key before relying on Studio. Studio changes live on the keyboard only, so
+  make keeper-changes in the repo.
 
 ## Troubleshooting
 
 | Symptom | Fix |
 |---|---|
 | Mac woke from sleep, keyboard won't reconnect | Toggle bluetooth off/on in Control Center — macOS Tahoe 26.5.2 bug, not the keyboard; this config carries mitigations (`CONFIG_BT_GATT_ENFORCE_SUBSCRIPTION=n`, deep sleep) |
+| Windows laptop woke from standby, keyboard won't reconnect | Toggle bluetooth off/on in Windows first. If it still fails: remove the keyboard in Windows settings, press ADJ + `;` (`BT_CLR`), toggle bluetooth again, then pair. If pairing keeps failing ("Enumerate Ceremonies" in the System log) the stale record is on the Windows side: reboot, or delete the keyboard's hidden entries in Device Manager (View → Show hidden devices). Also keep "Allow the computer to turn off this device" unticked on the Bluetooth adapter. |
 | Right half stops responding after long idle | Press the right half's reset button once — ZMK main regression, fix pending upstream ([zmk#3411](https://github.com/zmkfirmware/zmk/pull/3411)) |
 | Connected but nothing types | Stale pairing — clear both sides and re-pair (see above) |
 | Everything is weird | `settings_reset` flash to both halves (see Flashing) |
